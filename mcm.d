@@ -6,17 +6,12 @@ import std.string;
 import std.format;
 
 enum int NUM_UNIQUE_DIMENSIONS = 7;
-//enum int NUM_DIMENSIONS = NUM_UNIQUE_DIMENSIONS*2;
 void matrix_chain_multiplication(ref int[NUM_UNIQUE_DIMENSIONS][NUM_UNIQUE_DIMENSIONS] m, ref int[NUM_UNIQUE_DIMENSIONS][NUM_UNIQUE_DIMENSIONS] s, int [NUM_UNIQUE_DIMENSIONS] dims) {
 	int n = NUM_UNIQUE_DIMENSIONS;
 	//initializing diagonal
-	
 	for(int diag = 0; diag < dims.length; diag++) {
 		m[diag][diag] = 0;
 	}
-	
-	//indexing variable for computing costs, represents end of subsequence
-	//int j, cost;
 	
 	for(int sublen = 2; sublen < NUM_UNIQUE_DIMENSIONS; sublen++) {
 		for(int i = 1; i < NUM_UNIQUE_DIMENSIONS-sublen+1; i++) {
